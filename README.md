@@ -128,9 +128,9 @@ Outra diferença importante neste projeto em relação aos anteriores é que voc
 
   - Projeto individual.
 
-  - Serão `X` dias de projeto.
+  - Serão `2` dias de projeto.
   
-  - Data de entrega para avaliação final do projeto: `DD/MM/YYYY - 14:00h`.
+  - Data de entrega para avaliação final do projeto: `15/03/2022 14:00`.
 
 ---
 
@@ -139,9 +139,9 @@ Outra diferença importante neste projeto em relação aos anteriores é que voc
 ## Antes de começar a desenvolver
 
 1. Clone o repositório
-  * `git clone git@github.com:tryber/sd-0x-project-trybetunes.git`.
+  * `git clone git@github.com:tryber/sd-019-a-project-trybetunes.git`.
   * Entre na pasta do repositório que você acabou de clonar:
-    * `cd sd-0x-project-trybetunes`
+    * `cd sd-019-a-project-trybetunes`
 
 2. Instale as dependências e inicialize o projeto
   * Instale as dependências:
