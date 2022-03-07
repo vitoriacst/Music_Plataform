@@ -1,61 +1,78 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { Redirect } from 'react-router-dom';
+import { createUser } from '../services/userAPI';
 
 class Login extends React.Component {
   constructor() {
     super();
     this.state = {
-      button: false,
+      button: true,
       nome: '',
+      redirect: false,
+      inputName: '',
     };
   }
 
-ButtonHabilit = () => {
-  const {
-    button,
-    nome,
-  } = this.state;
-  const valueButton = 3;
+  RequirimentApi=(event) => {
+    event.preventDefault();
+    const { inputName } = this.state;
+    createUser({ name: inputName });
+  }
 
-  if (nome.length >= valueButton) {
-    this.setState({ button: true });
-  } else {
-    this.setState({ button: false });
+  change = (event) => {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value,
+    }, this.ButtonHabilit);
+  };
+
+  ButtonHabilit = () => {
+    const {
+      nome,
+    } = this.state;
+    const valueButton = 3;
+
+    if (nome.length >= valueButton) {
+      this.setState({ button: false });
+    } else {
+      this.setState({ button: true });
+    }
+  }
+
+  CallRedirect = () => {
+    this.setState({ redirect: true });
+  }
+
+  render() {
+    const {
+      redirect,
+      button,
+
+    } = this.state;
+    return (
+      <div data-testid="page-login">
+        <form action="submit">
+          <input
+            type="text"
+            data-testid="login-name-input"
+            name="nome"
+            onChange={ this.change }
+          />
+
+          <button
+            type="button"
+            data-testid="login-submit-button"
+            name="button"
+            id="button"
+            disabled={ button }
+            onClick={ this.CallRedirect }
+          >
+            Entrar
+          </button>
+          {redirect && <Redirect to="/search" /> }
+        </form>
+      </div>
+    );
   }
 }
-
-render() {
-  const {
-    checkButton,
-    inpName,
-  } = this.state;
-  return (
-    <div data-testid="page-login">
-      <form action="submit">
-        <input
-          type="text"
-          data-testid="login-name-input"
-          name="nome"
-          value={ inpName }
-        />
-
-        <button
-          type="button"
-          data-testid="login-submit-button"
-          name="button"
-          value={ checkButton }
-          disabled={ ButtonHabilit }
-        >
-          Entrar
-        </button>
-
-      </form>
-    </div>
-  );
-}
-}
-Login.propTypes = {
-  checkButton: propTypes.bool.isRequired,
-  inpName: propTypes.string.isRequired,
-};
 export default Login;
