@@ -1,12 +1,13 @@
 import React from 'react';
 import Header from './Header';
+import Load from './Load';
 
 class Search extends React.Component {
   constructor() {
     super();
     this.state = {
-      procura: '',
       Button: true,
+      load: false,
 
     };
   }
@@ -14,7 +15,6 @@ class Search extends React.Component {
   change = (event) => {
     const valueCheck = 2;
     this.setState(() => ({
-      procura: event.target.value,
       Button: event.target.value.length < valueCheck,
     }));
   }
@@ -22,34 +22,36 @@ class Search extends React.Component {
   render() {
     const {
       Button,
+      load,
     } = this.state;
+
     return (
       <div data-testid="page-search">
-        <Header />
-        <form action="submit">
-          <input
-            type="text"
-            name="procura"
-            id="Artista"
-            data-testid="search-artist-input"
-            placeholder="Explore"
-            onChange={ this.change }
-
-          />
-          <button
-            data-testid="search-artist-button"
-            type="submit"
-            name="Button"
-            disabled={ Button }
-
-          >
-            Pesquisar
-          </button>
-        </form>
+        { load ? <Load /> : (
+          <>
+            <Header />
+            <form action="submit">
+              <input
+                type="text"
+                name="procura"
+                id="Artista"
+                data-testid="search-artist-input"
+                placeholder="Explore"
+                onChange={ this.change }
+              />
+              <button
+                data-testid="search-artist-button"
+                type="submit"
+                name="Button"
+                disabled={ Button }
+              >
+                Pesquisar
+              </button>
+            </form>
+          </>
+        )}
       </div>
     );
   }
 }
-Search.propTypes = {
-};
 export default Search;
