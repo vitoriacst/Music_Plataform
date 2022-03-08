@@ -13,14 +13,6 @@ class App extends React.Component {
     return (
       <div>
         <Router>
-          <Link to="/">Login</Link>
-          <Link to="/Album">Album</Link>
-          <Link to="/NotFound">NotFound</Link>
-          <Link to="/Profile">Profile</Link>
-          <Link to="/Search">Search</Link>
-          <Link to="/Favorites">Favorites</Link>
-          <Link to="/profile/edit">ProfileEdit</Link>
-
           <Switch>
             <Route exact path="/" component={ Login } />
             <Route path="/album" component={ Album } />
