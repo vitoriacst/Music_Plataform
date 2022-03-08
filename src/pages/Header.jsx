@@ -1,37 +1,41 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import Load from './Load';
-// import Login from './Login';
+import Load from './Load';
+import { getUser } from '../services/userAPI';
 
 class Header extends React.Component {
-  // constructor() {
-  //   super()
-  //   const{
-  //   }= this.state
-  // };
+  constructor() {
+    super();
+    this.state = {
+      load: true,
+      usuario: '',
+    };
+  }
 
-  // RequirimentApi=(event) => {
-  //   event.preventDefault();
-  //   const {Load} = this.state;
-  //   this.setState({ load: true },
-  //     async () => {
-  //       await createUser({Load});
-  //       this.setState({
-  //         load: false,
-  //       });
-  //     });
-  // }
+  async componentDidMount() {
+    const usuario = await getUser();
+    this.setState({
+      load: false,
+      usuario: usuario.name,
+    });
+  }
 
   render() {
+    const {
+      load,
+      usuario,
+    } = this.state;
     return (
       <div>
         <header data-testid="header-component">
-          <Link to="/">Login</Link>
-          <Link to="/album">Album</Link>
-          <Link to="/profile" data-testid="link-to-profile">Profile</Link>
-          <Link to="/search" data-testid="link-to-search">Search</Link>
-          <Link to="/favorites" data-testid="link-to-favorites">Favorites</Link>
-          <Link to="/profile/edit">ProfileEdit</Link>
+          {
+            load ? <Load /> : (
+              <p data-testid="header-user-name">{usuario}</p>
+            )
+          }
+          <Link exact to="/profile" data-testid="link-to-profile">Profile</Link>
+          <Link exact to="/search" data-testid="link-to-search">Search</Link>
+          <Link exact to="/favorites" data-testid="link-to-favorites">Favorites</Link>
         </header>
       </div>
     );
