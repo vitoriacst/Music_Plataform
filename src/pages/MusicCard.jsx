@@ -1,15 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
- import favoriteSongAPI from '../services/favoriteSongsAPI';
- import Load from './Load';
+// import favoriteSongAPI from '../services/favoriteSongsAPI';
+// import Load from './Load';
 
 class MusicCard extends React.Component {
   constructor() {
     super();
     this.state = {
-      load: false,
-      album: [],
-      checked:false,
+      // load: false,
+      // album: [],
+      // checked: false,
     };
   }
 
