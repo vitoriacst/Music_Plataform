@@ -29,6 +29,7 @@ class Search extends React.Component {
   Button= async (event) => {
     event.preventDefault();
     const { name } = this.state;
+    console.log(name);
     this.setState({
       load: true,
       Salva: name,
@@ -104,6 +105,7 @@ class Search extends React.Component {
           </>
         )}
       </div>
+
     );
   }
 }
