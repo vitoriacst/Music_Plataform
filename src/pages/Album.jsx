@@ -1,16 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import MusicCard from './MusicCard';
 import Header from './Header';
 import getMusics from '../services/musicsAPI';
-import Load from './Load';
-import MusicCard from './MusicCard';
 
 class Album extends React.Component {
   constructor() {
     super();
     this.state = {
       GuardaMusicas: [],
-      load: true,
       NomeArtista: '',
       NomeAlbum: '',
     };
@@ -32,7 +30,6 @@ class Album extends React.Component {
 
      this.setState({
        GuardaMusicas: songs,
-       load: false,
        NomeAlbum: collectionName,
        NomeArtista: artistName,
      });
@@ -40,7 +37,6 @@ class Album extends React.Component {
 
    render() {
      const {
-       load,
        NomeAlbum,
        NomeArtista,
        GuardaMusicas,
@@ -49,22 +45,13 @@ class Album extends React.Component {
      return (
        <div data-testid="page-album">
          <Header />
-         { load ? <Load /> : (
-           <div>
-             <p data-testid="artist-name">{`O Artista e: ${NomeArtista}`}</p>
-             <p data-testid="album-name">{`O Artista e: ${NomeAlbum}`}</p>
-             {
-               GuardaMusicas.map((index) => (
-                 <MusicCard
-                   key={ index.trackId }
-                   trackName={ index.trackName }
-                   previewUrl={ index.previewUrl }
-                   trackId={ index.trackId }
-                 />
-               ))
-             }
-           </div>
-         )}
+         <div>
+           <p data-testid="artist-name">{`O Artista é: ${NomeArtista}`}</p>
+           <p data-testid="album-name">{`O Album é: ${NomeAlbum}`}</p>
+           <MusicCard
+             songs={ GuardaMusicas }
+           />
+         </div>
        </div>
      );
    }
