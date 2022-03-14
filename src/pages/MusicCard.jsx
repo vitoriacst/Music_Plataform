@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { addSong } from '../services/favoriteSongsAPI';
+import { addSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
 import Load from './Load';
 
 class MusicCard extends React.Component {
@@ -10,6 +10,10 @@ class MusicCard extends React.Component {
       load: false,
       list: [],
     };
+  }
+
+  componentDidMount() {
+    this.takeFavorites();
   }
 
   myFavoritesSongs = async (event) => {
@@ -27,41 +31,51 @@ class MusicCard extends React.Component {
     });
   }
 
-  render() {
-    const { songs } = this.props;
-    const { load, list } = this.state;
-    return (
-      <div>
-        { load ? <Load />
-          : songs.map((index) => (
-            <div key={ index.trackId }>
-              <p>
-                {index.trackName}
-              </p>
-              <audio data-testid="audio-component" src={ index.previewUrl } controls>
-                <track kind="captions" />
-                O seu navegador não suporta o elemento
-                <code>audio</code>
-                .
-              </audio>
-              <label htmlFor="MySongs">
-                Favorita
-                <input
-                  data-testid={ `checkbox-music-${index.trackId}` }
-                  type="checkbox"
-                  name="favoriteSongs"
-                  onChange={ this.myFavoritesSongs }
-                  id="MySongs"
-                  value={ index.trackId }
-                  checked={ list.some((haveId) => haveId === index.trackId) }
-                  // verifica se a musica tem o id
-                />
-              </label>
-            </div>
-          ))}
-      </div>
-    );
-  }
+ takeFavorites = async () => {
+   const listFavorites = await getFavoriteSongs();
+   // chamando a funcao da api req 9
+   const takeById = listFavorites.map((idMusic) => idMusic.trackId);
+   this.setState({
+     list: takeById,
+     // takebyId sao as mscs favoritas
+   });
+ }
+
+ render() {
+   const { songs } = this.props;
+   const { load, list } = this.state;
+   return (
+     <div>
+       { load ? <Load />
+         : songs.map((index) => (
+           <div key={ index.trackId }>
+             <p>
+               {index.trackName}
+             </p>
+             <audio data-testid="audio-component" src={ index.previewUrl } controls>
+               <track kind="captions" />
+               O seu navegador não suporta o elemento
+               <code>audio</code>
+               .
+             </audio>
+             <label htmlFor="MySongs">
+               Favorita
+               <input
+                 data-testid={ `checkbox-music-${index.trackId}` }
+                 type="checkbox"
+                 name="favoriteSongs"
+                 onChange={ this.myFavoritesSongs }
+                 id="MySongs"
+                 value={ index.trackId }
+                 checked={ list.some((haveId) => haveId === index.trackId) }
+                 // verifica se a musica tem o id
+               />
+             </label>
+           </div>
+         ))}
+     </div>
+   );
+ }
 }
 
 MusicCard.propTypes = {
