@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Header from './Header';
 import Load from './Load';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
+import '../style/Search.css';
 
 class Search extends React.Component {
   constructor() {
@@ -54,12 +55,13 @@ class Search extends React.Component {
     } = this.state;
 
     return (
-      <div data-testid="page-search">
+      <div data-testid="page-search" className="main-search">
         { load ? <Load /> : (
           <>
             <Header />
-            <form action="submit">
+            <form action="submit" className="login-search">
               <input
+                className="search-input"
                 type="text"
                 name="name"
                 id="Artista"
@@ -69,6 +71,7 @@ class Search extends React.Component {
                 value={ name }
               />
               <button
+                className="button-input"
                 data-testid="search-artist-button"
                 type="submit"
                 name="Button"
@@ -80,11 +83,18 @@ class Search extends React.Component {
               </button>
             </form>
             {
-              foundAlbum ? (<h1>{`Resultado de álbuns de: ${Salva}`}</h1>) : null
+              foundAlbum ? (<h1 className="text-search">
+                {
+                  `Resultado de álbuns de: ${Salva}`
+                }
+
+              </h1>) : null
             }
             {album.length <= 0 && !name ? <p>Nenhum álbum foi encontrado</p>
               : album.map((i) => (
+
                 <Link
+                  className="music-albuns"
                   key={
                     album.collectionId
                   }
@@ -94,6 +104,7 @@ class Search extends React.Component {
                   <div key={ album.collectionId }>
                     {' '}
                     <img
+                      className="image-album"
                       src={ i.artworkUrl100 }
                       alt={ `Capa do i ${i.collectionName}` }
                     />

@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&display=swap');
+
+.main-search {
+  align-items: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  justify-content: center;
+}
+
+body {
+  background-color: rgb(20, 57, 90);
+
+}
+
+.login-search {
+  align-items: center;
+  background: rgb(0, 0, 0);
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+  justify-content: center;
+  width: 100%;
+}
+
+.search-input {
+  align-items: center;
+  background-color: rgb(83, 81, 81);
+  border-radius: 5px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  margin: 8px 0;
+  padding: 17px 23px;
+}
+
+.music-albuns {
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  text-align: center;
+  width: 10rem;
+  text-decoration: none;
+  color: black;
+  font-family: 'Bebas Neue' , cursive;
+
+
+}
+
+.image-album {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.text-search {
+  font-family: 'Inconsolata' , monospace;
+  font-size: 20px;
+}

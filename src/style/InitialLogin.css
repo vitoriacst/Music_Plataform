@@ -1,0 +1,106 @@
+.main-login {
+  align-items: center;
+  background: #0f2027;  /* fallback for old browsers */
+  background: linear-gradient(to right, #2c5364, #203a43, #0f2027);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #2c5364, #203a43, #0f2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  display: flex;
+  height: 43rem;
+  justify-content: space-evenly;
+
+
+}
+
+.login-input {
+  align-items: center;
+  backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 7px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 400px;
+  justify-content: center;
+  margin-bottom: 100px;
+  width: 300px;
+}
+
+.Text-input {
+  color: rgb(0, 0, 0);
+  font-family: 'Inconsolata', monospace;
+
+}
+
+.name-input {
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+  color: rgb(7, 7, 7);
+  display: flex;
+  justify-content: space-between;
+  margin: 8px 0;
+  padding: 17px 20px;
+}
+
+.button-input {
+  background-color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 5px;
+  color: #444;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  height: 40px;
+  padding: 0 10px;
+  transition: all 0.5s ease;
+  width: 50%;
+}
+
+.button-input:hover {
+  background-color: rgb(4, 24, 38);
+  color: white;
+}
+
+.image {
+  width: 300px;
+}
+
+.Waves {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+}
+
+.waveOne {
+  animation: moveWaveOne 3s ease-in-out  infinite alternate;
+}
+
+@keyframes moveWaveOne {
+
+  from {
+    transform: translateX(-280px);
+  }
+}
+
+.waveTwo {
+  animation: moveWaveTwo 3s 1.2s ease-in-out  infinite alternate;
+}
+
+@keyframes moveWaveTwo {
+
+  from {
+    transform: translateX(-100px);
+  }
+}
+
+.waveThree {
+  animation: moveWaveThree 3s 0.7s ease-in-out  infinite alternate;
+}
+
+@keyframes moveWaveThree {
+
+  from {
+    transform: translateX(70px);
+  }
+}

@@ -1,0 +1,9 @@
+.my-profile {
+  display: flex;
+  height: 36rem;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  font-family: 'Inconsolata', monospace;
+}

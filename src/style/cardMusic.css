@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+.main-card {
+  align-items: center;
+  background-color: white;
+  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.text-album {
+  color: white;
+  font-family: 'Bebas Neue' , cursive;
+  font-size: 30px;
+  text-align: center;
+}

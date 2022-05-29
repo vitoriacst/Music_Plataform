@@ -1,0 +1,9 @@
+.main-favorites {
+  align-items: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Inconsolata' , monospace;
+  height: 36rem;
+  justify-content: center;
+}

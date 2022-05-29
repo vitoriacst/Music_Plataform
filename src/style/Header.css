@@ -1,0 +1,29 @@
+.Header-main {
+  align-items: center;
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  display: flex;
+  height: 10px;
+  justify-content: space-between;
+  left: 0;
+  opacity: 0.9;
+  padding: 20px 50px;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.links {
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none;
+  margin-right: 100px;
+  padding: 0 10px;
+  text-decoration: none;
+  width: 200px;
+}
+
+.Link {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
