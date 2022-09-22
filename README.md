@@ -1,4 +1,4 @@
-## 👨‍🍳 Music plataform##
+## 🎵 Plataforma de música  ##
 
 ![mobile (7)](https://user-images.githubusercontent.com/86388276/191778924-b4bccd96-ff51-4b19-96cc-a58adf51f590.png)
 
